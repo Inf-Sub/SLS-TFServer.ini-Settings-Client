@@ -1,0 +1,24 @@
+PowerShell:
+
+[System.Console]::Title = hostname
+winget install --id Git.Git -e --source winget ;
+winget install --id=Python.Python.3.12 -e --source winget ;
+
+
+
+cmd:
+
+title %computername%: %username%
+mkdir "C:\SoftLand Systems\SLS-Scripts"
+cd "C:\SoftLand Systems\SLS-Scripts"
+git clone https://github.com/ADmin-TkYD/SLS-TFServer.ini-Settings-Client.git
+cd SLS-TFServer.ini-Settings-Client
+python.exe -m pip install --upgrade pip
+python -m venv venv
+venv\Scripts\activate
+python.exe -m pip install --upgrade pip
+pip install -r requirements.txt
+
+python main.py
+deactivate
+
